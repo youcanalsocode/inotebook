@@ -3,10 +3,10 @@ import notecntx from "../context/Nodecontext";
 import { useBeforeUnload } from "react-router-dom";
 
 export default function About() {
-  const a = useContext(notecntx);
-  useEffect(() => {
-    a.update();
-  }, []);
+  // const a = useContext(notecntx);
+  // useEffect(() => {
+  //   a.update();
+  // }, []);
   return (
     <div>
       <h1>This is About </h1>
