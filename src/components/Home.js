@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
-import notecntx from "../context/Nodecontext";
+
+import Notes from "./Notes";
 
 export default function Home() {
-  const noteContext = useContext(notecntx); // Context value
-  const { note } = noteContext;
   return (
     <div>
       <h1>This is form</h1>
@@ -46,10 +45,7 @@ export default function Home() {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
-        <h1>Your Notes</h1>
-        {note.map((note) => {
-          return note.name;
-        })}
+        <Notes />
       </form>
     </div>
   );
