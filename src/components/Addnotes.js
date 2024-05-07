@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import Notes from "./Notes";
+import notecntx from "../context/Nodecontext";
 
 export default function Addnotes() {
+  const noteContext = useContext(notecntx); // Context value
+  const { Addnote } = noteContext;
+  const [note, setnote] = useState({ title: "", Descr: "" });
+
+  const onclickhandle = (e) => {
+    Addnote(note.title, note.Descr);
+    e.preventDefault();
+  };
+  const onchange = (e) => {
+    setnote({ ...note, [e.target.name]: [e.target.value] });
+  };
+
   return (
     <div>
       <div>
@@ -8,32 +22,39 @@ export default function Addnotes() {
 
         <form>
           <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label for="title" className="Title">
               Title
             </label>
             <input
               type="Text"
               className="form-control"
-              id="exampleInputEmail1"
+              id="title"
+              name="title"
               aria-describedby="emailHelp"
+              onChange={onchange}
             />
-            <div id="emailHelp" className="form-text"></div>
+            <div id="title" className="titlw-text"></div>
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
-              Deescrioption
+            <label for="Descr" className="Text">
+              Description
             </label>
             <input
               type="Text"
               className="form-control"
-              id="exampleInputPassword1"
+              id="Descr"
+              name="Descr"
+              onChange={onchange}
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
-            Submit
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={onclickhandle}
+          >
+            Add Note
           </button>
-          <Notes />
         </form>
       </div>
     </div>
