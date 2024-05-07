@@ -5,7 +5,7 @@ import Notecontext from "./Nodecontext";
 export default function Notestate(props) {
   const n1 = [
     {
-      id: "663083d6c443e87616af4",
+      _id: "663083d6c443e87616af4",
       title: "Book 1",
       Descr: "nehappt",
       tag: "123",
@@ -13,7 +13,7 @@ export default function Notestate(props) {
       v: "0",
     },
     {
-      id: "6630kljhioweho8ureo44444ojopujpj",
+      _id: "6630kljhioweho8ureo44444ojopujpj",
       title: "life",
       Descr: "golfarcticit",
       tag: "gotnk12g",
@@ -21,7 +21,7 @@ export default function Notestate(props) {
       v: "0",
     },
     {
-      id: "6630kljhiowe343333oojopujpj",
+      _id: "6630kljhiowe343333oojopujpj",
       title: "Game",
       Descr: "golfarcticit",
       tag: "gotnk12g",
@@ -29,7 +29,7 @@ export default function Notestate(props) {
       v: "0",
     },
     {
-      id: "6630kljhi343ooojopujpj",
+      _id: "6630kljhi343ooojopujpj",
       title: "water",
       Descr: "golfarcticit",
       tag: "gotnk12g",
@@ -37,7 +37,7 @@ export default function Notestate(props) {
       v: "0",
     },
     {
-      id: "6630kljhioweho8u4545oojopujpj",
+      _id: "6630kljhioweho8u4545oojopujpj",
       title: "summer",
       Descr: "golfarcticit",
       tag: "gotnk12g",
@@ -45,7 +45,7 @@ export default function Notestate(props) {
       v: "0",
     },
     {
-      id: "6630kljhioweho234435eooojopujpj",
+      _id: "6630kljhioweho234435eooojopujpj",
       title: "winter",
       Descr: "golfarcticit",
       tag: "gotnk12g",
@@ -53,7 +53,7 @@ export default function Notestate(props) {
       v: "0",
     },
     {
-      id: "6630kljhio4355eooojopujpj",
+      _id: "6630kljhio4355eooojopujpj",
       title: "rainy",
       Descr: "golfarcticit",
       tag: "gotnk12g",
@@ -66,7 +66,7 @@ export default function Notestate(props) {
     console.log(title);
     console.log(Descr);
     const newnote = {
-      id: "6630kljhioweho222222544444eooojopujpj",
+      _id: "6630kljhioweho222222544444eooojopujpj",
       title: title,
       Descr: Descr,
       tag: "gotnk12g_add",
@@ -77,7 +77,13 @@ export default function Notestate(props) {
     setnote((note) => [...note, newnote]);
   };
 
-  const Delnote = () => {};
+  const Delnote = (id) => {
+    // console.log("deleting", id);
+    const delnotes = note.filter((note) => {
+      return note._id != id;
+    });
+    setnote(delnotes);
+  };
   const Editnote = () => {};
 
   return (
