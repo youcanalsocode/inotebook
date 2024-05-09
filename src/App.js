@@ -14,7 +14,7 @@ function App() {
         <Router>
           <Navbar />
           <Aleart></Aleart>
-          <div class="container">
+          <div className="container">
             <Routes>
               <Route exact path="/" element={<Home />} />
             </Routes>

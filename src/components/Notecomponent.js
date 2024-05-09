@@ -9,13 +9,13 @@ export default function Notecomponent(props) {
     Delnote(note._id);
   };
   return (
-    <div class="col-md-3">
+    <div className="col-md-3">
       <div className="card">
         <div className="card-body">
-          <div class="d-flex align-items-center">
+          <div className="d-flex align-items-center">
             <h5 className="card-title">{note.title}</h5>
-            <i class="fa-solid fa-trash mx-3" onClick={handledelclick}></i>
-            <i class="fa-solid fa-pen-to-square mx-3"></i>
+            <i className="fa-solid fa-trash mx-3" onClick={handledelclick}></i>
+            <i className="fa-solid fa-pen-to-square mx-3"></i>
           </div>
 
           <p className="card-text">

@@ -6,7 +6,7 @@ export default function Notes() {
   const noteContext = useContext(notecntx); // Context value
   const { note } = noteContext;
   return (
-    <div class="row my-3">
+    <div className="row my-3">
       <h1>Your Notes</h1>
       {note.map((note) => {
         return <Notecomponent note={note} />;
