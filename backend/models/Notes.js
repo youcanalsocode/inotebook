@@ -1,7 +1,8 @@
 const { type } = require("@testing-library/user-event/dist/type");
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const NotesSchema = newSchema({
+const NotesSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -17,8 +18,8 @@ const NotesSchema = newSchema({
     required: true,
   },
   date: {
-    type: Date.now,
-    required: true,
+    type: Date,
+    default: Date.now,
   },
 });
 module.exports = mongoose.model("notes", NotesSchema);
