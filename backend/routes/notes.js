@@ -45,4 +45,68 @@ router.post(
   }
 );
 
+//Router post request to add a new node//login reuires
+//Router3
+
+router.get("/updatenote/:id", fetchuser, async (req, res) => {
+  const { title, descr, tag } = req.body;
+  const newnote = {};
+  //creating an ew note
+  if (title) {
+    newnote.title = title;
+  }
+  if (descr) {
+    newnote.descr = descr;
+  }
+  if (tag) {
+    newnote.tag = tag;
+  }
+  //find the note to be updated
+  try {
+    let note = await Notes.findById(req.params.id);
+    if (!note) {
+      return res.status(404).send("not found");
+    }
+    if (note.user.toString() !== req.user.id) {
+      return res.status(401).send("Not allowed");
+    }
+
+    note = await Notes.findByIdAndUpdate(
+      req.params.id,
+      { $set: newnote },
+      { new: true }
+    );
+    res.json({ note });
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ error: "Internal server error", message: err.message });
+  }
+});
+
+//Router post request to delete a note using delete//login reuires
+//Router3
+
+router.delete("/deletenote/:id", fetchuser, async (req, res) => {
+  //find the note to be updated
+  try {
+    let note = await Notes.findById(req.params.id);
+    if (!note) {
+      return res.status(404).send("not found");
+    }
+    if (note.user.toString() !== req.user.id) {
+      return res.status(401).send("Not allowed");
+    }
+
+    note = await Notes.findByIdAndDelete(req.params.id);
+    res.json({ success: "note has been deleted", note: note });
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ error: "Internal server error", message: err.message });
+  }
+});
+
 module.exports = router;
