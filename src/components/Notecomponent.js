@@ -19,7 +19,7 @@ export default function Notecomponent(props) {
           </div>
 
           <p className="card-text">
-            {note.Descr}.......
+            {note.descr}.......
             <br /> If you wish to add more descr feel free
           </p>
         </div>
