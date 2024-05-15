@@ -9,6 +9,12 @@ export default function Addnotes() {
 
   const onclickhandle = (e) => {
     Addnote(note.title, note.descr, note.tag);
+
+    setnote({
+      title: "",
+      descr: "",
+      tag: "",
+    });
     e.preventDefault();
   };
   const onchange = (e) => {
@@ -22,7 +28,7 @@ export default function Addnotes() {
 
         <form>
           <div className="mb-3">
-            <label for="title" className="Title">
+            <label htmlFor="title" className="Title">
               Title
             </label>
             <input
@@ -31,11 +37,12 @@ export default function Addnotes() {
               id="title"
               name="title"
               aria-describedby="emailHelp"
+              value={note.title}
               onChange={onchange}
             />
           </div>
           <div className="mb-3">
-            <label for="descr" className="Text">
+            <label htmlFor="descr" className="Text">
               description
             </label>
             <input
@@ -43,11 +50,12 @@ export default function Addnotes() {
               className="form-control"
               id="descr"
               name="descr"
+              value={note.descr}
               onChange={onchange}
             />
           </div>
           <div className="mb-3">
-            <label for="tag" className="tag">
+            <label htmlFor="tag" className="tag">
               TAG
             </label>
             <input
@@ -56,6 +64,7 @@ export default function Addnotes() {
               id="tag"
               name="tag"
               aria-describedby=""
+              value={note.tag}
               onChange={onchange}
             />
           </div>

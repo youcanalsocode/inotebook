@@ -5,7 +5,7 @@ import notecntx from "../context/Nodecontext";
 export default function Editnote(props) {
   const noteContext = useContext(notecntx); // Context value
   const { Editnote } = noteContext;
-  const { currentnote } = props;
+  const { currentnote, closemodel } = props;
   const [note, setnote] = useState({
     title: currentnote ? currentnote.title : "",
     descr: currentnote ? currentnote.descr : "",
@@ -26,7 +26,7 @@ export default function Editnote(props) {
     console.log(currentnote._id);
 
     Editnote(currentnote._id, note.title, note.descr, note.tag);
-
+    closemodel();
     e.preventDefault();
   };
   const onchange = (e) => {

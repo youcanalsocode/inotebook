@@ -9,6 +9,7 @@ export default function Notes() {
   const noteContext = useContext(notecntx); // Context value
   const { note, Fetchnote } = noteContext;
   const [currentnote, setCurrentNote] = useState(null);
+  const [ismodelopen, setismodel] = useState();
 
   useEffect(() => {
     Fetchnote();
@@ -25,6 +26,14 @@ export default function Notes() {
     } else {
       console.error("Modal button ref is null");
     }
+  };
+  const openmodel = (currentnote) => {
+    setCurrentNote(currentnote);
+    setismodel(true);
+  };
+  const closemodel = (currentnote) => {
+    setCurrentNote(currentnote);
+    setismodel(false);
   };
 
   return (
@@ -44,7 +53,7 @@ export default function Notes() {
       </button>
 
       <div
-        className="modal fade"
+        className={`modal fade ${ismodelopen ? "show" : ""}`}
         id="exampleModal"
         tabindex="-1"
         role="dialog"
@@ -67,7 +76,10 @@ export default function Notes() {
               </button>
             </div>
             <div className="modal-body">
-              <Editnote currentnote={currentnote}></Editnote>
+              <Editnote
+                currentnote={currentnote}
+                closemodel={closemodel}
+              ></Editnote>
             </div>
           </div>
         </div>
