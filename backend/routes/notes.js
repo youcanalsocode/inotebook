@@ -48,7 +48,7 @@ router.post(
 //Router post request to add a new node//login reuires
 //Router3
 
-router.get("/updatenote/:id", fetchuser, async (req, res) => {
+router.post("/updatenote/:id", fetchuser, async (req, res) => {
   const { title, descr, tag } = req.body;
   const newnote = {};
   //creating an ew note

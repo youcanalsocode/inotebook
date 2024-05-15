@@ -70,8 +70,9 @@ export default function Notestate(props) {
   //Editing a note*************************************************************************************************************************************************
   const Editnote = async (id, title, descr, tag) => {
     //call api
+
     const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-      method: "GET",
+      method: "POST",
 
       headers: {
         "Content-Type": "application/json",
@@ -79,17 +80,19 @@ export default function Notestate(props) {
         "auth-token":
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjYzZjFlMmI4OTA4NjQ4NjlhMjE2NjM4In0sImlhdCI6MTcxNTQxMjU1OX0.whyiCHEyInO7BBeg0PCYD4c6ZJqWdEjyGHhQYEjvnOo",
       },
-      body: JSON.stringify(title, descr, tag),
+      body: JSON.stringify({ title, descr, tag }),
     });
-    const jsonres = response.json();
-    for (let i = 0; i < note.length; i++) {
-      const element = note(i);
-      if (element._id == id) {
-        element.title = title;
-        element.descr = descr;
-        element.tag = tag;
-      }
-    }
+    const updatedNote = await response.json();
+
+    // Update the note state based on the response
+    setnote((prevNote) => {
+      return prevNote.map((element) => {
+        if (element._id === id) {
+          return { ...element, title, descr, tag };
+        }
+        return element;
+      });
+    });
   };
 
   return (
