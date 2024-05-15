@@ -32,10 +32,9 @@ router.post("/createuser", [body("email").isEmail()], async (req, res) => {
       },
     };
     const jwt_data = jwt.sign(data, jwt_secret);
-    console.log(jwt_data);
 
-    // res.json(user);
-    res.json(jwt_data);
+    success = true;
+    res.json({ success, jwt_data });
   } catch (err) {
     console.log(err);
     res
@@ -62,9 +61,11 @@ router.post(
     }
 
     const { email, password } = req.body;
+
     try {
       let user = await User.findOne({ email });
       if (!user) {
+        success = false;
         return res.status(400).json({ error: "please emter correct credein" });
       }
       let passcmpr = await bcrypt.compare(password, user.password);
@@ -78,9 +79,11 @@ router.post(
           id: user.id,
         },
       };
+
       const authtoken = jwt.sign(payload, jwt_secret);
       console.log(authtoken);
-      res.json(authtoken);
+      success = true;
+      res.json({ success, authtoken });
     } catch (err) {
       console.log(err);
       res

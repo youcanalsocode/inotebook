@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import Aleart from "./components/Aleart";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Notestate from "./context/Notestate";
+import Signup from "./components/Signup";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -20,6 +22,12 @@ function App() {
             </Routes>
             <Routes>
               <Route exact path="/About" element={<About />} />
+            </Routes>
+            <Routes>
+              <Route exact path="/Login" element={<Login />} />
+            </Routes>
+            <Routes>
+              <Route exact path="/Signup" element={<Signup />} />
             </Routes>
           </div>
         </Router>
