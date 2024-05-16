@@ -26,14 +26,16 @@ export default function Login() {
       }),
     });
     const jsonres = await response.json();
-    alert(jsonres);
+
     if (jsonres.success) {
       alert("Login successful!");
       localStorage.setItem("token", jsonres.authtoken);
+      // localStorage.setItem("isLoggedin", true);
+      // alert(localStorage.getItem("isLoggedin"));
       //history.push("/"); older version
       history("/");
     } else {
-      alert("not god!");
+      alert("Please enter the correct credentials");
     }
     console.log(jsonres);
   };
@@ -69,7 +71,7 @@ export default function Login() {
         </div>
 
         <button type="submit" className="btn btn-primary">
-          Submit
+          Login
         </button>
       </form>
     </div>

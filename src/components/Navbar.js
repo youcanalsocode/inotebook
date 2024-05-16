@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  let history = useNavigate();
   let location = useLocation();
   useEffect(() => {
     console.log(location.pathname);
   }, [location]);
-
+  const isLoggedin = localStorage.getItem("token");
+  // alert(isLoggedin);
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav
+        className="navbar navbar-expand-lg  
+      navbar-dark bg-dark"
+      >
         <div className="container-fluid">
           <Link className="navbar-brand" to="#">
             Navbar
@@ -49,12 +54,37 @@ export default function Navbar() {
                 </Link>
               </li>
             </ul>
-            <Link class="btn btn-primary mx-1" to="/Login" role="button">
-              Login
-            </Link>
-            <Link class="btn btn-primary mx-1" to="/Signup" role="button">
-              Sign Up
-            </Link>
+
+            {isLoggedin ? (
+              <>
+                {" "}
+                <Link
+                  className="btn btn-primary mx-1"
+                  to="/Logout"
+                  role="button"
+                >
+                  Logout
+                </Link>
+              </>
+            ) : (
+              <>
+                {" "}
+                <Link
+                  className="btn btn-primary mx-1"
+                  to="/Login"
+                  role="button"
+                >
+                  Login
+                </Link>
+                <Link
+                  className="btn btn-primary mx-1"
+                  to="/Signup"
+                  role="button"
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>

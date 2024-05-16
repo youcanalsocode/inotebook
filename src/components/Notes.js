@@ -4,16 +4,26 @@ import notecntx from "../context/Nodecontext";
 import Editnote from "./Editnote";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { useNavigate } from "react-router";
+import { getAllByLabelText } from "@testing-library/react";
+import { Alert } from "bootstrap";
 
 export default function Notes() {
+  const history = useNavigate();
   const noteContext = useContext(notecntx); // Context value
   const { note, Fetchnote } = noteContext;
   const [currentnote, setCurrentNote] = useState(null);
   const [ismodelopen, setismodel] = useState();
 
   useEffect(() => {
-    Fetchnote();
+    if (localStorage.getItem("token")) {
+      // alert(localStorage.getItem("token"));
+      Fetchnote();
+    } else {
+      history("/Login");
+    }
   }, []);
+
   const ref = useRef(null);
   const updatenote = (currentnote) => {
     // ref.current.click();
