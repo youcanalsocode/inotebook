@@ -85,6 +85,7 @@ export default function Editnote(props) {
           <button
             type="submit"
             className="btn btn-primary"
+            data-bs-dismiss="modal"
             onClick={onclickhandle}
           >
             Update Note

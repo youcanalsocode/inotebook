@@ -13,7 +13,7 @@ export default function Notes() {
   const noteContext = useContext(notecntx); // Context value
   const { note, Fetchnote } = noteContext;
   const [currentnote, setCurrentNote] = useState(null);
-  const [ismodelopen, setismodel] = useState();
+  const [ismodelopen, setismodel] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -78,8 +78,8 @@ export default function Notes() {
               </h5>
               <button
                 type="button"
-                className="close"
-                data-dismiss="modal"
+                className="btn-close"
+                data-bs-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
@@ -94,7 +94,6 @@ export default function Notes() {
           </div>
         </div>
       </div>
-
       <div className="row my-3">
         <h1>Your Notes</h1>
         {note.map((note) => {
