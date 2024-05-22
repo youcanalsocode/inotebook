@@ -5,8 +5,6 @@ import Editnote from "./Editnote";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { useNavigate } from "react-router";
-import { getAllByLabelText } from "@testing-library/react";
-import { Alert } from "bootstrap";
 
 export default function Notes(props) {
   const history = useNavigate();

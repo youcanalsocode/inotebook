@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Aleart from "./Aleart";
+
 import { useNavigate } from "react-router-dom"; // in react don version 6 there are many things replaced so instead of useHistory one should use useNavigate
 
 // import Aleart from "./Aleart";

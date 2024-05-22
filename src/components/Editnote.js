@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import Notes from "./Notes";
+
 import notecntx from "../context/Nodecontext";
 
 export default function Editnote(props) {

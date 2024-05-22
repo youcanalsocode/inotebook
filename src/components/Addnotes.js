@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import Notes from "./Notes";
 import notecntx from "../context/Nodecontext";
 
 export default function Addnotes(props) {
