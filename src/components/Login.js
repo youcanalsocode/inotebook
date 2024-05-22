@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
+import Aleart from "./Aleart";
 import { useNavigate } from "react-router-dom"; // in react don version 6 there are many things replaced so instead of useHistory one should use useNavigate
 
 // import Aleart from "./Aleart";
 
-export default function Login() {
+export default function Login(props) {
   let host = "http://localhost:5000";
   const [credentials, setcredentials] = useState({ email: "", password: "" });
   let history = useNavigate();
@@ -28,14 +28,15 @@ export default function Login() {
     const jsonres = await response.json();
 
     if (jsonres.success) {
-      alert("Login successful!");
       localStorage.setItem("token", jsonres.authtoken);
-      // localStorage.setItem("isLoggedin", true);
-      // alert(localStorage.getItem("isLoggedin"));
       //history.push("/"); older version
+      props.showaleart("You have been logged in succesfylly", "success");
       history("/");
     } else {
-      alert("Please enter the correct credentials");
+      props.showaleart(
+        "Please enter correct credentials/new user-signup",
+        "warning"
+      );
     }
     console.log(jsonres);
   };

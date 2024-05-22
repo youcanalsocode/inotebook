@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 import { getAllByLabelText } from "@testing-library/react";
 import { Alert } from "bootstrap";
 
-export default function Notes() {
+export default function Notes(props) {
   const history = useNavigate();
   const noteContext = useContext(notecntx); // Context value
   const { note, Fetchnote } = noteContext;
@@ -29,6 +29,7 @@ export default function Notes() {
     // ref.current.click();
     setCurrentNote(currentnote);
     console.log(currentnote);
+    // props.showaleart("Note has been updated", "success");
 
     if (ref.current) {
       ref.current.click();
@@ -44,6 +45,7 @@ export default function Notes() {
   const closemodel = (currentnote) => {
     setCurrentNote(currentnote);
     setismodel(false);
+    // props.showaleart("Note has been updated", "success");
   };
 
   return (
@@ -98,7 +100,12 @@ export default function Notes() {
         <h1>Your Notes</h1>
         {note.map((note) => {
           return (
-            <Notecomponent key={note._id} updatenote={updatenote} note={note} />
+            <Notecomponent
+              key={note._id}
+              updatenote={updatenote}
+              note={note}
+              showaleart={props.showaleart}
+            />
           );
         })}
       </div>

@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import Notes from "./Notes";
 import Addnotes from "./Addnotes";
 
-export default function Home() {
+export default function Home(props) {
   return (
     // <div>
     //   <h1>This is form</h1>
@@ -50,8 +50,8 @@ export default function Home() {
     //   </form>
     // </div>
     <>
-      <Addnotes></Addnotes>
-      <Notes></Notes>
+      <Addnotes showaleart={props.showaleart}></Addnotes>
+      <Notes showaleart={props.showaleart}></Notes>
     </>
   );
 }

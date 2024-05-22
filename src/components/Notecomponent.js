@@ -7,6 +7,7 @@ export default function Notecomponent(props) {
   const { note, updatenote } = props;
   const handledelclick = () => {
     Delnote(note._id);
+    props.showaleart("Note has been deleted succesfully", "danger");
   };
   return (
     <div className="col-md-3  my-3">

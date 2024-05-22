@@ -10,22 +10,49 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 
+import { useState } from "react";
+
 function App() {
+  const [aleart, setaleart] = useState("");
+  const showaleart = (message, type) => {
+    setaleart(
+      {
+        msg: message,
+        type: type,
+      },
+      setTimeout(() => {
+        setaleart(null);
+      }, 2000)
+    );
+  };
   return (
     <>
-      <Notestate>
-        <Router>
-          <Navbar />
-          <Aleart></Aleart>
+      <Router>
+        <Navbar />
+        <Aleart aleart={aleart}></Aleart>
+
+        <Notestate>
           <div className="container">
             <Routes>
-              <Route exact path="/Login" element={<Login />} />
+              <Route
+                exact
+                path="/Login"
+                element={<Login showaleart={showaleart} />}
+              />
             </Routes>
             <Routes>
-              <Route exact path="/Logout" element={<Logout />} />
+              <Route
+                exact
+                path="/Logout"
+                element={<Logout showaleart={showaleart} />}
+              />
             </Routes>
             <Routes>
-              <Route exact path="/" element={<Home />} />
+              <Route
+                exact
+                path="/"
+                element={<Home showaleart={showaleart} />}
+              />
             </Routes>
             <Routes>
               <Route exact path="/About" element={<About />} />
@@ -35,8 +62,8 @@ function App() {
               <Route exact path="/Signup" element={<Signup />} />
             </Routes>
           </div>
-        </Router>
-      </Notestate>
+        </Notestate>
+      </Router>
     </>
   );
 }
