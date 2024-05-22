@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/youcanalsocode/inotebook.git/static/css/main.db62923b.css",
+    "main.js": "/youcanalsocode/inotebook.git/static/js/main.84d99d80.js",
+    "static/js/453.eef5fca9.chunk.js": "/youcanalsocode/inotebook.git/static/js/453.eef5fca9.chunk.js",
+    "static/media/logo.svg": "/youcanalsocode/inotebook.git/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/youcanalsocode/inotebook.git/index.html",
+    "main.db62923b.css.map": "/youcanalsocode/inotebook.git/static/css/main.db62923b.css.map",
+    "main.84d99d80.js.map": "/youcanalsocode/inotebook.git/static/js/main.84d99d80.js.map",
+    "453.eef5fca9.chunk.js.map": "/youcanalsocode/inotebook.git/static/js/453.eef5fca9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db62923b.css",
+    "static/js/main.84d99d80.js"
+  ]
+}
