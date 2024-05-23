@@ -11,7 +11,7 @@ export default function Logout(props) {
     history("/login"); // Redirect to the login page
 
     showaleart("Logged out", "success");
-  }, [history]);
+  }, [showaleart, history]);
 
   return null; // Return null as this component doesn't render anything
 }

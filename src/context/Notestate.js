@@ -79,7 +79,8 @@ export default function Notestate(props) {
       },
       body: JSON.stringify({ title, descr, tag }),
     });
-    // const updatedNote = await response.json();
+    const updatedNote = await response.json();
+    console.log(updatedNote);
 
     // Update the note state based on the response
     setnote((prevNote) => {
