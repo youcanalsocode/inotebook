@@ -26,12 +26,12 @@ export default function Notes(props) {
   const updatenote = (currentnote) => {
     // ref.current.click();
     setCurrentNote(currentnote);
-    console.log(currentnote);
+    //console.log(currentnote);
     // props.showaleart("Note has been updated", "success");
 
     if (ref.current) {
       ref.current.click();
-      console.log("ref.curent is working");
+      //console.log("ref.curent is working");
     } else {
       console.error("Modal button ref is null");
     }
@@ -65,7 +65,7 @@ export default function Notes(props) {
       <div
         className={`modal fade ${ismodelopen ? "show" : ""}`}
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"

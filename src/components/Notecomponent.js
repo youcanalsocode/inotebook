@@ -19,7 +19,7 @@ export default function Notecomponent(props) {
             <i
               className="fa-solid fa-pen-to-square mx-3"
               onClick={() => {
-                console.log("button clicked");
+                //console.log("button clicked");
                 updatenote(note);
               }}
             ></i>

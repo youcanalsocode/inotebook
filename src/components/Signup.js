@@ -8,9 +8,9 @@ export default function Signup() {
   });
 
   const handlesubmit = async (e) => {
-    console.log(credentials.email);
-    console.log(credentials.password);
-    console.log(credentials.name);
+    //console.log(credentials.email);
+    //console.log(credentials.password);
+    //console.log(credentials.name);
 
     e.preventDefault();
     const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
@@ -28,7 +28,7 @@ export default function Signup() {
     });
     const jsonres = await response.json();
 
-    console.log(jsonres);
+    //console.log(jsonres);
   };
   const onchange = (e) => {
     setcredentials({ ...credentials, [e.target.name]: e.target.value });

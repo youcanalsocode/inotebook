@@ -9,8 +9,8 @@ export default function Login(props) {
   const [credentials, setcredentials] = useState({ email: "", password: "" });
   let history = useNavigate();
   const handlesubmit = async (e) => {
-    console.log(credentials.email);
-    console.log(credentials.password);
+    //console.log(credentials.email);
+    //console.log(credentials.password);
 
     e.preventDefault();
     const response = await fetch(`${host}/api/auth/login`, {
@@ -38,7 +38,7 @@ export default function Login(props) {
         "warning"
       );
     }
-    console.log(jsonres);
+    //console.log(jsonres);
   };
   const onchange = (e) => {
     setcredentials({ ...credentials, [e.target.name]: e.target.value });

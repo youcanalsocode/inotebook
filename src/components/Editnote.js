@@ -22,8 +22,8 @@ export default function Editnote(props) {
   }, [currentnote]);
 
   const onclickhandle = (e) => {
-    console.log(note.title, note.descr, note.tag);
-    console.log(currentnote._id);
+    //console.log(note.title, note.descr, note.tag);
+    //console.log(currentnote._id);
 
     Editnote(currentnote._id, note.title, note.descr, note.tag);
     closemodel();
@@ -31,7 +31,7 @@ export default function Editnote(props) {
   };
   const onchange = (e) => {
     setnote({ ...note, [e.target.name]: e.target.value });
-    // console.log({ [e.target.name]: e.target.value });
+    // //console.log({ [e.target.name]: e.target.value });
   };
 
   return (
@@ -41,7 +41,7 @@ export default function Editnote(props) {
 
         <form>
           <div className="mb-3">
-            <label for="title" className="Title">
+            <label htmlFor="title" className="Title">
               Title
             </label>
             <input
@@ -55,7 +55,7 @@ export default function Editnote(props) {
             />
           </div>
           <div className="mb-3">
-            <label for="descr" className="Text">
+            <label htmlFor="descr" className="Text">
               description
             </label>
             <input
@@ -68,7 +68,7 @@ export default function Editnote(props) {
             />
           </div>
           <div className="mb-3">
-            <label for="tag" className="tag">
+            <label htmlFor="tag" className="tag">
               TAG
             </label>
             <input

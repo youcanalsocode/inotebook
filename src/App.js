@@ -35,29 +35,20 @@ function App() {
             <Routes>
               <Route
                 exact
+                path="/"
+                element={<Home showaleart={showaleart} />}
+              />
+              <Route
+                exact
                 path="/Login"
                 element={<Login showaleart={showaleart} />}
               />
-            </Routes>
-            <Routes>
               <Route
                 exact
                 path="/Logout"
                 element={<Logout showaleart={showaleart} />}
               />
-            </Routes>
-            <Routes>
-              <Route
-                exact
-                path="/"
-                element={<Home showaleart={showaleart} />}
-              />
-            </Routes>
-            <Routes>
               <Route exact path="/About" element={<About />} />
-            </Routes>
-
-            <Routes>
               <Route exact path="/Signup" element={<Signup />} />
             </Routes>
           </div>

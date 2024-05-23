@@ -20,7 +20,7 @@ export default function Notestate(props) {
     });
     const jsonres = await response.json();
     setnote(jsonres);
-    console.log(jsonres);
+    //console.log(jsonres);
   };
 
   const [note, setnote] = useState(n1);
@@ -56,9 +56,9 @@ export default function Notestate(props) {
       },
     });
     const jsonres = response.json();
-    console.log(jsonres);
+    //console.log(jsonres);
 
-    // console.log("deleting", id);
+    // //console.log("deleting", id);
     const delnotes = note.filter((note) => {
       return note._id !== id;
     });
@@ -80,7 +80,7 @@ export default function Notestate(props) {
       body: JSON.stringify({ title, descr, tag }),
     });
     const updatedNote = await response.json();
-    console.log(updatedNote);
+    //console.log(updatedNote);
 
     // Update the note state based on the response
     setnote((prevNote) => {
