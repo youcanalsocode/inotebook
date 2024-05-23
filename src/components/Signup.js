@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export default function Signup() {
-  let host = "http://localhost:5000";
   const [credentials, setcredentials] = useState({
     name: "",
     email: "",

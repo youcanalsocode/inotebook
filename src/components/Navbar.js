@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
-  let history = useNavigate();
   let location = useLocation();
   useEffect(() => {
     console.log(location.pathname);

@@ -60,7 +60,7 @@ export default function Notestate(props) {
 
     // console.log("deleting", id);
     const delnotes = note.filter((note) => {
-      return note._id != id;
+      return note._id !== id;
     });
     setnote(delnotes);
   };
@@ -79,7 +79,7 @@ export default function Notestate(props) {
       },
       body: JSON.stringify({ title, descr, tag }),
     });
-    const updatedNote = await response.json();
+    // const updatedNote = await response.json();
 
     // Update the note state based on the response
     setnote((prevNote) => {

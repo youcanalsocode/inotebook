@@ -20,7 +20,7 @@ export default function Notes(props) {
     } else {
       history("/Login");
     }
-  }, []);
+  }, [Fetchnote, history]);
 
   const ref = useRef(null);
   const updatenote = (currentnote) => {
@@ -36,10 +36,10 @@ export default function Notes(props) {
       console.error("Modal button ref is null");
     }
   };
-  const openmodel = (currentnote) => {
-    setCurrentNote(currentnote);
-    setismodel(true);
-  };
+  // const openmodel = (currentnote) => {
+  //   setCurrentNote(currentnote);
+  //   setismodel(true);
+  // };
   const closemodel = (currentnote) => {
     setCurrentNote(currentnote);
     setismodel(false);

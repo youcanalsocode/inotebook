@@ -1,6 +1,4 @@
-import React, { useContext, useEffect } from "react";
-import notecntx from "../context/Nodecontext";
-import { useBeforeUnload } from "react-router-dom";
+import React from "react";
 
 export default function About() {
   // const a = useContext(notecntx);
